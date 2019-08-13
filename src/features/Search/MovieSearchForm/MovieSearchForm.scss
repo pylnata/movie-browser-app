@@ -1,0 +1,9 @@
+@import "theme";
+
+.search-btn {
+  position: absolute;
+  color: $gray-500;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}

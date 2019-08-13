@@ -1,0 +1,39 @@
+@import "theme";
+
+.card-register {
+  background-color: rgba(37, 34, 34, 0.75);
+  border-radius: 8px;
+  color: $white;
+  max-width: 350px;
+  min-height: 400px;
+  padding: 30px;
+  margin-top: 50px;
+
+  & label {
+    margin-top: 15px;
+  }
+  & .title {
+    color: $white;
+    font-size: 2em;
+    text-align: center;
+    font-weight: 500;
+  }
+  & .btn:not(.btn-link) {
+    margin-top: 30px;
+    font-size: $font-size-medium;
+    text-transform: uppercase;
+  }
+
+  .input-group-text {
+    border: 1px solid $white;
+  }
+
+  .error {
+    margin-top: 20px;
+  }
+
+  .invalid-feedback {
+    color: $warning;
+    font-size: 1em;
+  }
+}

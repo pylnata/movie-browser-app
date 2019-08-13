@@ -1,0 +1,10 @@
+@import "theme";
+
+.movie-filter {
+  margin: 120px 0 70px 0;
+
+  .btn {
+    border: 1px solid $gray-800;
+    color: $gray-300;
+  }
+}

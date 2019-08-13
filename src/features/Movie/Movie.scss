@@ -1,0 +1,146 @@
+@import "theme";
+
+.movie-backdrop {
+  background-color: $black;
+  animation: animateOpacity 1s ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  z-index: -1;
+}
+
+.movie {
+  margin-top: 130px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: $gray-300;
+  position: relative;
+  display: grid;
+  grid-template:
+    "image info"
+    "image stat";
+  justify-content: start;
+
+  @media screen and (max-width: 991px) {
+    display: grid;
+    grid-template:
+      "image info"
+      "stat stat";
+  }
+
+  @media screen and (max-width: 767px) {
+    display: grid;
+    grid-template:
+      "info"
+      "image"
+      "stat";
+    justify-items: center;
+  }
+  h2 {
+    color: $warning;
+    margin-right: 30px;
+  }
+
+  &__tagline {
+    animation: animateOpacity 2s ease;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+  }
+
+  &__icon {
+    font-size: 1.5em;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .badge {
+    margin-right: 10px;
+    font-size: 1em;
+    font-weight: 100;
+  }
+
+  &__control {
+    margin-bottom: 20px;
+  }
+
+  &__info {
+    grid-area: info;
+  }
+
+  &__rating {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    margin: 4px;
+    background-color: transparent;
+    padding: 8px;
+    text-align: center;
+    display: inline-block;
+    z-index: 100;
+    width: 55px;
+    font-size: $font-size-lg;
+    border-radius: 50%;
+    border: 2px $success solid;
+  }
+
+  &__img {
+    width: 300px;
+    grid-area: image;
+    animation: animateScale 1s ease;
+    @media screen and (max-width: 767px) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__overview {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 20px;
+  }
+
+  &__stat {
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    padding: 15px;
+    font-size: 1em;
+    color: $gray-500;
+    grid-area: stat;
+    align-self: end;
+    div {
+      display: flex;
+      align-items: center;
+
+      @media screen and (max-width: 767px) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+
+.movie-gallery {
+  background: $black;
+  padding: 30px;
+}
+
+.movie-recommendations {
+  background: $white;
+  padding: 30px;
+}
+
+.list-title {
+  font-size: 2em;
+  font-weight: 300;
+  color: rgb(134, 124, 124);
+  text-transform: uppercase;
+  background: #fbf8ec;
+  background: linear-gradient(to bottom, #ffffff 35%, #4e6773 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  &.list-title-dark {
+    color: $gray-800;
+    background: $gray-700;
+    background: linear-gradient(to bottom, $gray-500 35%, $gray-800 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

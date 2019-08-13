@@ -1,0 +1,38 @@
+@import "theme";
+
+.movie-cast {
+  background-color: $white;
+  padding: 30px 0 0 30px;
+
+  &__item {
+    margin-bottom: 30px;
+    margin-right: 30px;
+    max-width: 150px;
+    text-align: center;
+  }
+
+  .custom-control-label {
+    cursor: pointer;
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__nophoto {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 80%;
+  }
+
+  &__info {
+    background: rgba(0, 0, 0, 0.1);
+    width: 100%;
+    min-height: 50px;
+    padding: 10px;
+  }
+}

@@ -1,0 +1,15 @@
+@import "theme";
+
+footer {
+  font-size: $font-size-sm;
+  color: $gray-300;
+  a, a:active, a:visited {
+    color: $gray-500;
+  }
+  a:hover {
+  color: $white;
+  }
+  .heart {
+    color: $danger;
+  }
+}

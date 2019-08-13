@@ -1,0 +1,14 @@
+{
+  "rules": {
+      "reviews": {
+		    ".read": "true",
+    		".write": "true"
+      },
+      "watchlist": {
+       "$uid": {
+         ".read": "$uid === auth.uid",
+         ".write": "$uid === auth.uid"
+       }
+    }
+  }
+}

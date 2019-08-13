@@ -1,0 +1,16 @@
+@import "theme";
+
+body {
+  background-color: #000;
+}
+
+main{
+  min-height: 75vh;
+}
+
+.page-header {
+  background-image: url("./bg.jpg");
+  background-position: center center;
+  background-size: cover;
+  z-index: -2;
+}
