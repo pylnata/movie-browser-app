@@ -95,7 +95,7 @@ class Header extends Component {
 
               <NavItem>
                 <NavLink
-                  href="https://www.github.com/pylnata/movies-app"
+                  href="https://github.com/pylnata/movie-browser-app"
                   target="_blank"
                   title="Star on GitHub"
                 >
