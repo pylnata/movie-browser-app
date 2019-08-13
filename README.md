@@ -1,3 +1,6 @@
+
+![Alt text](MovieBrowser_1.png?raw=true "MovieBrowser")
+
 # Movie-Browser-App
 
 https://api-cinema-10d15.firebaseapp.com
@@ -13,5 +16,8 @@ Application allowes:
 * to filter and search for movie database (using TMDB API);
 * to view movie details;
 * create User Account to build own watch lists.
+
+![Alt text](MovieBrowser_2.png?raw=true "MovieBrowser")
+
 
 P.S. If you want to clone and launch this project, pay attention that src/config.js has to contain your own created API keys.
