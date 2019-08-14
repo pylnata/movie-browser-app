@@ -1,0 +1,13 @@
+@import "theme";
+
+.movie-recommendations {
+  background: $white;
+  padding: 30px;
+  .movie-card {
+  margin: 20px;
+
+    @media screen and (max-width: 991px) {
+      width: 150px;
+    }
+  }
+}

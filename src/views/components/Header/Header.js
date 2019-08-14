@@ -11,6 +11,7 @@ import {
   Container
 } from "reactstrap";
 import { NavLink as NavLinkRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import MovieSearchForm from "@/features/Search/MovieSearchForm/MovieSearchForm";
 
@@ -43,6 +44,16 @@ class Header extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.updateNavbarColor);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (
+      prevState.navbarCollapse &&
+      prevProps.location.pathname !== this.props.location.pathname
+    ) {
+      this.setState({ navbarCollapse: false });
+      document.documentElement.classList.toggle("nav-open");
+    }
   }
 
   render() {
@@ -128,6 +139,8 @@ Header.propTypes = {
   isAuth: PropTypes.bool
 };
 
-export { Header };
+const enhauncedHeader = withRouter(Header);
 
-export default Header;
+export { enhauncedHeader as Header };
+
+export default enhauncedHeader;

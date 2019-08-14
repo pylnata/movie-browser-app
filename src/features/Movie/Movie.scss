@@ -20,6 +20,8 @@
     "image stat";
   justify-content: start;
 
+  grid-template-columns: 300px 1fr;
+
   @media screen and (max-width: 991px) {
     display: grid;
     grid-template:
@@ -121,10 +123,6 @@
   padding: 30px;
 }
 
-.movie-recommendations {
-  background: $white;
-  padding: 30px;
-}
 
 .list-title {
   font-size: 2em;

@@ -8,6 +8,8 @@ import actions from "../actions";
 import actionsMovieBrowser from "@/features/MovieBrowser/actions";
 import { MovieCard } from "@/features/MovieBrowser/MovieList";
 
+import "./Recommendations.scss";
+
 class Recommendations extends Component {
   componentDidMount() {
     const { match, getRecommendations, genres, getGenres } = this.props;
@@ -33,11 +35,10 @@ class Recommendations extends Component {
     const movieList = movies.data.map(movie => (
       <MovieCard movie={movie} genres={genres.data} key={movie.id} />
     ));
-
     return (
       <div className="movie-recommendations">
         <h3 className="list-title list-title-dark mb-4">Recommendations</h3>
-        <div className="d-flex flex-wrap justify-content-md-between justify-content-center">
+        <div className={`d-flex flex-wrap justify-content-center`}>
           {movieList}
         </div>
       </div>

@@ -38,19 +38,19 @@
     font-family: "Acme", $font-family-monospace;
     display: block;
 
-    @media screen and (max-width: 991px) {
+    @media screen and (max-width: 1199px) {
       display: none;
     }
   }
 
   .navbar-translate {
-    width: 60%;
+    width: 50%;
     @media screen and (max-width: 991px) {
       width: 100%;
     }
 
     @media screen and (max-width: 576px) {
-    width: 80%;
+    width: 90%;
     }
   }
 
