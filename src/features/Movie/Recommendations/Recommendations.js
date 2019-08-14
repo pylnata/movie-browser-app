@@ -31,9 +31,7 @@ class Recommendations extends Component {
     if (movies.data.length < 1) return null;
 
     const movieList = movies.data.map(movie => (
-      <div className="movie-card" key={movie.id}>
-        <MovieCard movie={movie} genres={genres.data} />
-      </div>
+      <MovieCard movie={movie} genres={genres.data} key={movie.id} />
     ));
 
     return (
