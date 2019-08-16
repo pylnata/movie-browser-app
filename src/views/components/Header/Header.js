@@ -64,7 +64,7 @@ class Header extends Component {
         expand="lg"
       >
         <Container className="pt-2">
-          <div className="navbar-translate d-flex align-align-content-center">
+          <div className="navbar-translate d-flex align-content-center">
             <NavLinkRouter to="/">
               <i className="fas fa-video nav-logo" />{" "}
             </NavLinkRouter>

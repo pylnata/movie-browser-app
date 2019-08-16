@@ -44,7 +44,7 @@ class Search extends Component {
     return (
       <Container style={{marginTop: '130px'}}>
 
-      <h1 className="list-title mb-5">Search results "{movies.request.query}" ({movies.data.total_results}) </h1>
+      <h1 className="list-title mb-5">Search results "{movies.request.query}"</h1>
 
         <MovieList
           movies={movies.data.results}

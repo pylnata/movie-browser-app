@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Spinner, Button } from "reactstrap";
+import { Spinner, Button, UncontrolledTooltip } from "reactstrap";
 import PropTypes from "prop-types";
 
 import actions from "../actions";
@@ -17,7 +17,7 @@ class WatchListButton extends React.Component {
 
   clickWatchListHandler = isInWatchList => {
     const { movie, userId, token } = this.props;
-
+    if (!userId) return false;
     if (!isInWatchList) {
       this.props.addMovieWatchList(
         {
@@ -29,11 +29,7 @@ class WatchListButton extends React.Component {
         token
       );
     } else {
-      this.props.removeMovieWatchList(
-        movie.id,
-        userId,
-        token
-      );
+      this.props.removeMovieWatchList(movie.id, userId, token);
     }
   };
 
@@ -46,27 +42,30 @@ class WatchListButton extends React.Component {
 
     const labelRemove = short ? " Remove " : " Remove from my WatchList ";
 
-    let tooltip = null;
-    if (!userId) {
-      tooltip = "Please sign in to add movie to watchlist";
-    }
     const isInWatchList =
-      userId &&
-      this.props.watchList.data.find(item => item.id === movie.id);
+      userId && this.props.watchList.data.find(item => item.id === movie.id);
 
     return (
-      <Button
-        className={`movie__like mr-2 ${this.props.className}`}
-        color={isInWatchList ? "secondary" : "success"}
-        onClick={() => this.clickWatchListHandler(isInWatchList)}
-        disabled={!userId}
-        data-toggle="tooltip"
-        data-placement="top"
-        title={tooltip}
-      >
-        <i className="far fa-bookmark" />
-        {isInWatchList ? labelRemove : " Add to my Watchlist"}
-      </Button>
+      <>
+        <Button
+          className={`movie__like mr-2 ${this.props.className}`}
+          color={isInWatchList ? "secondary" : "success"}
+          onClick={() => this.clickWatchListHandler(isInWatchList)}
+          id="watchlist-btn"
+        >
+          <i className="far fa-bookmark" />
+          {isInWatchList ? labelRemove : " Add to my Watchlist"}
+        </Button>
+
+        {!userId && (
+          <UncontrolledTooltip
+            placement="bottom"
+            target="watchlist-btn"
+          >
+            Please sign in to add movie to watchlist
+          </UncontrolledTooltip>
+        )}
+      </>
     );
   }
 }
@@ -78,7 +77,7 @@ WatchListButton.propTypes = {
   watchList: PropTypes.object.isRequired,
   addMovieWatchList: PropTypes.func.isRequired,
   removeMovieWatchList: PropTypes.func.isRequired,
-  getWatchList: PropTypes.func.isRequired,
+  getWatchList: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ movieDetails, auth, watchList }) => ({
