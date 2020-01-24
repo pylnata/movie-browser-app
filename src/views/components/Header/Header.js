@@ -90,12 +90,13 @@ class Header extends Component {
             isOpen={this.state.navbarCollapse}
           >
             <Nav navbar>
+              {/*
               <NavItem>
                 <NavLinkRouter to="/" className="nav-link">
                   <i className="far fa-list-alt" /> Movies
                 </NavLinkRouter>
               </NavItem>
-
+              */}
               {this.props.isAuth && (
                 <NavItem>
                   <NavLinkRouter to="/watchlist" className="nav-link">
