@@ -12,6 +12,8 @@ Used:
 * bootstrap + reactstrap;
 * redux-saga;
 
+For tests: react-testing-library
+
 Application allowes: 
 * to filter and search for movie database (using TMDB API);
 * to view movie details;
