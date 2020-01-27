@@ -7,7 +7,7 @@ import Routes from "@/routes";
 import { Layout } from "@/views";
 import actions from "@/features/Auth/actions";
 
-class App extends React.Component {
+export class App extends React.Component {
   componentDidMount() {
     this.props.onTryAutoSignup();
   }
@@ -31,7 +31,7 @@ class App extends React.Component {
 App.propTypes = {
   onTryAutoSignup: PropTypes.func.isRequired,
   isAutoSignupInProcess: PropTypes.bool,
-  isAuthenticated: PropTypes.bool,
+  isAuthenticated: PropTypes.bool
 };
 
 const mapStateToProps = ({ auth }) => ({
@@ -45,9 +45,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const AppConnected = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
-
-export { AppConnected as App };
+export default connect(mapStateToProps, mapDispatchToProps)(App);

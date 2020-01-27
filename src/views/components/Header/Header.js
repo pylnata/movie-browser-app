@@ -90,13 +90,6 @@ class Header extends Component {
             isOpen={this.state.navbarCollapse}
           >
             <Nav navbar>
-              {/*
-              <NavItem>
-                <NavLinkRouter to="/" className="nav-link">
-                  <i className="far fa-list-alt" /> Movies
-                </NavLinkRouter>
-              </NavItem>
-              */}
               {this.props.isAuth && (
                 <NavItem>
                   <NavLinkRouter to="/watchlist" className="nav-link">
@@ -121,7 +114,7 @@ class Header extends Component {
                     <Button className="btn-round btn-sign">SIGN OUT</Button>
                   </NavLinkRouter>
                 ) : (
-                  <NavLinkRouter to="/auth" exact>
+                  <NavLinkRouter data-testid="signin-link" to="/auth" exact>
                     <Button color="danger" className="btn-round btn-sign">
                       SIGN IN
                     </Button>

@@ -8,7 +8,7 @@ import actions from "../actions";
 
 import "./MovieSearchForm.scss";
 
-const MovieSearchForm = props => {
+export const MovieSearchForm = props => {
 
   const onChangeHandler = event => {
     const query = event.target.value;
@@ -24,6 +24,7 @@ const MovieSearchForm = props => {
     <div className="d-flex flex-column w-100">
       <div className="position-relative">
         <Input
+          data-testid="search-input"
           type="text"
           name="search"
           placeholder="Search by movie title"
@@ -54,7 +55,5 @@ const enhauncedMovieSearchForm = withRouter(
     mapDispatchToProps
   )(MovieSearchForm)
 );
-
-export { enhauncedMovieSearchForm as MovieSearchForm };
 
 export default enhauncedMovieSearchForm;

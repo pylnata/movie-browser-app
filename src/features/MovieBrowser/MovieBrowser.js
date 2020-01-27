@@ -4,11 +4,11 @@ import { Spinner } from "reactstrap";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { MovieFilter } from "./MovieFilter/MovieFilter";
+import MovieFilter from "./MovieFilter/MovieFilter";
 import MovieList from "./MovieList/MovieList";
 import actions from "./actions";
 import WithHttpErrorHandler from "@/hoc/WithHttpErrorHandler";
-import { axiosMovies } from "@/axios";
+import { axiosMovies as axios } from "@/axios";
 
 class MovieBrowser extends Component {
 
@@ -44,6 +44,7 @@ class MovieBrowser extends Component {
 
   render() {
     const { movies, genres } = this.props;
+
     if (genres.isLoading || !movies.data) return <Spinner />;
 
     return (
@@ -85,12 +86,9 @@ const mapDispatchToProps = dispatch => ({
   getMovies: (page, filter) => dispatch(actions.getMovies(page, filter))
 });
 
-const connectedMovieBrowser =
-  connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(WithHttpErrorHandler(MovieBrowser, axiosMovies));
+  )(WithHttpErrorHandler(MovieBrowser, axios));
 
-export default connectedMovieBrowser;
-export { connectedMovieBrowser as MovieBrowser };
 

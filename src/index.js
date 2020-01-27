@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import "@/assets/scss/custom.scss";
 
 import { store } from "@/store";
-import { App } from "./App";
+import App from "./App";
 
 const app = (
   <Provider store={store}>

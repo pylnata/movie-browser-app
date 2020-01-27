@@ -12,9 +12,8 @@ import { translateErrorMessage } from "./helpers";
 
 import "./Auth.scss";
 
-class Auth extends React.Component {
+export class Auth extends React.Component {
   state = { isSignup: false };
-
 
   switchAuthModeHandler = e => {
     e.preventDefault();
@@ -43,9 +42,8 @@ class Auth extends React.Component {
         <Helmet>
           <title>Authentification | MovieBrowser</title>
         </Helmet>
-
         <Card className="card-register">
-          <h3 className="title mx-auto">
+          <h3 className="title mx-auto" >
             {this.state.isSignup ? "Create account" : "Sign In"}
           </h3>
           {/* TODO
@@ -66,15 +64,15 @@ class Auth extends React.Component {
             })}
             onSubmit={({ email, password }, { setStatus, setSubmitting }) => {
               setStatus();
-
               this.props.onAuth(email, password, this.state.isSignup);
               setSubmitting(false);
             }}
             render={({ errors, status, touched, isSubmitting }) => (
-              <Form className="register-form">
+              <Form className="register-form" data-testid="login-form">
                 <FormGroup>
                   <label htmlFor="email">Email</label>
                   <Field
+                    id="email"
                     name="email"
                     type="email"
                     className={
@@ -92,6 +90,7 @@ class Auth extends React.Component {
                 <FormGroup>
                   <label htmlFor="password">Password</label>
                   <Field
+                    id="password"
                     name="password"
                     type="password"
                     className={
@@ -175,11 +174,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const connectedAuth = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Auth);
-
-export default connectedAuth;
-
-export { connectedAuth as Auth };
+export default connect(mapStateToProps, mapDispatchToProps)(Auth);

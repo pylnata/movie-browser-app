@@ -4,10 +4,9 @@ import { withRouter } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import PropTypes from "prop-types";
 
+import "./MovieFilter.scss";
 
-import  "./MovieFilter.scss";
-
-const MovieFilter = props => {
+export const MovieFilter = props => {
   const filters = [
     { key: "popular", value: "Popular" },
     { key: "now_playing", value: "Now playing" },
@@ -23,27 +22,25 @@ const MovieFilter = props => {
     ? props.match.params.filter
     : filters[0]["key"];
 
-    const filter = filters.find(item => item.key === filterKey);
-  ;
+  const filter = filters.find(item => item.key === filterKey);
   return (
     <>
-    <Helmet>
-      <title>{filter.value} / MovieBrowser</title>
-    </Helmet>
+      <Helmet>
+        <title>{filter.value} / MovieBrowser</title>
+      </Helmet>
 
-
-    <ButtonGroup className="movie-filter">
-      {filters.map(item => (
-        <Button
-          key={item.key}
-          title={item.key}
-          color={filterKey === item.key ? "success" : "transparent"}
-          onClick={onClick}
-        >
-          {item.value}
-        </Button>
-      ))}
-    </ButtonGroup>
+      <ButtonGroup className="movie-filter">
+        {filters.map(item => (
+          <Button
+            key={item.key}
+            title={item.key}
+            color={filterKey === item.key ? "success" : "transparent"}
+            onClick={onClick}
+          >
+            {item.value}
+          </Button>
+        ))}
+      </ButtonGroup>
     </>
   );
 };
@@ -51,12 +48,10 @@ const MovieFilter = props => {
 MovieFilter.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      filter: PropTypes.string,
-    }),
+      filter: PropTypes.string
+    })
   }),
-  history: PropTypes.object.isRequired,
-}
+  history: PropTypes.object.isRequired
+};
 
-const connectedMovieFilter = withRouter(MovieFilter);
-export { connectedMovieFilter as MovieFilter };
-export default connectedMovieFilter;
+export default withRouter(MovieFilter);

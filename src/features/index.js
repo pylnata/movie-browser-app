@@ -1,9 +1,9 @@
-export { Auth } from "./Auth/Auth";
+export { default as Auth } from "./Auth/Auth";
 
-export { Logout } from "./Auth/Logout/Logout";
+export { default as Logout } from "./Auth/Logout/Logout";
 
-export { MovieBrowser } from "./MovieBrowser/MovieBrowser";
+export { default as  MovieBrowser }  from "./MovieBrowser/MovieBrowser";
 
-export { Search } from "./Search/Search";
+export { default as Search } from "./Search/Search";
 
-export { Movie } from "./Movie/Movie";
+export { default as Movie } from "./Movie/Movie";

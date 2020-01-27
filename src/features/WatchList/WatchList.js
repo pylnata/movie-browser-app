@@ -69,11 +69,8 @@ const mapDispatchToProps = dispatch => ({
   getWatchList: (userId, token) => dispatch(actions.getWatchList(userId, token))
 });
 
-const connectWatchList = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(WithHttpErrorHandler(WatchList, axios));
 
-export default connectWatchList;
-
-export { connectWatchList as WatchList };

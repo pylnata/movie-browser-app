@@ -83,10 +83,8 @@ const mapDispatchToProps = dispatch => ({
   clearSearch: () => dispatch(actions.setSearchText(""))
 });
 
-const connectedSearch = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(WithHttpErrorHandler(Search, axiosMovies));
 
-export default connectedSearch;
-export { connectedSearch as Search };

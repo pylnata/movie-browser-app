@@ -272,7 +272,7 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
-          '@': path.resolve(__dirname, '../src/'),
+          '@': path.resolve(__dirname, '../src'),
           'theme': path.resolve(__dirname, '../src/assets/scss/_theme.scss'),
       },
       plugins: [

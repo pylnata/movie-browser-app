@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import MovieCard from "./MovieCard/MovieCard";
 import "./MovieList.scss";
 
-const MovieList = props => {
+export const MovieList = props => {
   const list = props.movies.map(movie => (
     <MovieCard movie={movie} genres={props.genres} key={movie.id} />
   ));
@@ -45,10 +45,4 @@ MovieList.propTypes = {
   genres: PropTypes.array
 };
 
-MovieList.defaultProps = {
-  //initialPage: 1,
-  //pageCount: 1
-};
-
-export { MovieList };
 export default MovieList;

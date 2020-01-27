@@ -49,16 +49,17 @@
     "postcss-preset-env": "6.6.0",
     "postcss-safe-parser": "4.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.8.6",
+    "react": "^16.12.0",
     "react-app-polyfill": "^1.0.1",
     "react-dev-utils": "^9.0.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-image-gallery": "^0.8.18",
     "react-paginate": "^6.3.0",
     "react-redux": "^7.1.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
+    "react-test-renderer": "^16.12.0",
     "reactstrap": "^8.0.1",
     "redux": "^4.0.4",
     "redux-saga": "^1.0.5",
@@ -74,6 +75,9 @@
     "webpack-manifest-plugin": "2.0.4",
     "workbox-webpack-plugin": "4.2.0",
     "yup": "^0.27.0"
+  },
+  "resolutions": {
+    "react-side-effect": "^2.1.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
@@ -103,7 +107,9 @@
     "setupFiles": [
       "react-app-polyfill/jsdom"
     ],
-    "setupFilesAfterEnv": [],
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-dom/extend-expect"
+    ],
     "testMatch": [
       "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
@@ -123,7 +129,8 @@
     ],
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
-      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "@/(.*)$": "<rootDir>/src/$1"
     },
     "moduleFileExtensions": [
       "web.js",
@@ -146,5 +153,9 @@
     "presets": [
       "react-app"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.0.2",
+    "@testing-library/react": "^9.4.0"
   }
 }

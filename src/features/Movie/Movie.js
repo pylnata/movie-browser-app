@@ -105,20 +105,17 @@ class Movie extends React.Component {
             <div className="movie__stat d-flex justify-content-between align-items-center">
               {movieData.release_date && (
                 <div>
-                    <i className="fa fa-clock-o movie__icon" />
-                    Release date:{" "}
-                  {this.getReleaseDateStr(movieData.release_date)}
+                  <i className="fa fa-clock-o movie__icon" />
+                  Release date: {this.getReleaseDateStr(movieData.release_date)}
                 </div>
               )}
               <div>
-                  <i className="fas fa-history movie__icon" />
-                  Duration: {" "}
-                {durationStr}
+                <i className="fas fa-history movie__icon" />
+                Duration: {durationStr}
               </div>
               <div>
-                  <i className="fa fa-money movie__icon" />
-                  Budget: {" "}
-                ${budgetStr}
+                <i className="fa fa-money movie__icon" />
+                Budget: ${budgetStr}
               </div>
             </div>
           </div>
@@ -150,10 +147,7 @@ const mapDispatchToProps = dispatch => ({
   getMovie: id => dispatch(actions.getMovie(id))
 });
 
-const connectedMovie = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(WithHttpErrorHandler(Movie, axiosMovies));
-
-export default connectedMovie;
-export { connectedMovie as Movie };
